@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import { Form, Input, Button } from 'antd';
 import ModalForm from '../Modal';
 
@@ -18,9 +19,14 @@ const tailLayout = {
 };
 
 const LoginForm = () => {
+
+  const history = useHistory();
   const [showModal, setModal] = useState(false);
+
   const onFinish = values => {
     console.log('Success:', values);
+    history.push('/login');
+
   };
 
   const onFinishFailed = errorInfo => {

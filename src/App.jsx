@@ -1,10 +1,10 @@
-import { Layout } from 'antd';
-import { Row, Col } from 'antd';
+import {Row, Col, Layout, Alert } from 'antd';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import LoginForm from './components/Login';
 import Feeds from './components/Feeds';
-import './css/style.css';
+import './css/style.scss';
 
 function App() {
   const { Header, Footer, Content } = Layout;
@@ -17,7 +17,10 @@ function App() {
           <Row>
             <Col span={8}>&nbsp;</Col>
             <Col span={8}>
-              <Route path='/'>
+              <Route  path="/login">
+                  <Alert message="You are logged in successfully!" type="success" />
+              </Route>
+              <Route exact path='/'>
                 <LoginForm />
               </Route>
             </Col>
@@ -25,14 +28,13 @@ function App() {
           </Row>
         </Content>
       </Switch>
-      <Footer>
-        <div className='txt-center'>
-          <Row>
-            <Col span={24}>
-              <Feeds />
-            </Col>
-          </Row>
-        </div>
+      <Footer className="footer-ortex">
+        <div style={{display:"flex"}}>
+          <div style={{justifyContent:"center"}}>
+            <Feeds /> 
+            </div>
+          </div>      
+              
       </Footer>
     </Router>
   );

@@ -34,16 +34,16 @@ const Feeds = () => {
   }, []);
 
   return (
-    <div>
+    <div className="offset-3">
       <Row>
-        <Col span={5}>&nbsp;</Col>
-        <Col span={11}>
+       
+        <Col span={24}>
           <Descriptions size='small'>
             <Descriptions.Item label='Time'>{feeds.timeStamp ? new Date(feeds.timeStamp).getTime() : 'Loading...'}</Descriptions.Item>
             <Descriptions.Item label='Price'>{feeds.amount}</Descriptions.Item>
           </Descriptions>
         </Col>
-        <Col span={8}>&nbsp;</Col>
+       
       </Row>
     </div>
   );
